@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raport</title>
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="hero__container container">
+          <div class="hero__content">
+            <h1 class="hero__title title">Uczenie nienadzorowane</h1>
+            <p class="hero__descr descr">
+              Algorytmy klasteryzacji (grupowania) są jedną z grup metod uczenia
+              nienadzorowanego i pozwalają na automatyczne grupowanie
+              wielowymiarowych danych w klastry.
+            </p>
+            <p class="hero__descr">
+              Na tych zajęciach użyjemy scikit-learn do określenia klastrów przy
+              użyciu różnych algorytmów. Eksperymentując z każdym z algorytmów
+              klasteryzacji, spróbujemy odkryć wady i zalety poszczególnych
+              algorytmów:
+            </p>
+            <ul class="hero__list">
+              <div class="hero__item">K-Means (Algorytm centroidów)</div>
+              <div class="hero__item">MeanShift</div>
+              <div class="hero__item">DBSCAN (Analiza gęstościowa)</div>
+              <div class="hero__item">
+                AgglomerativeClustering (Algorytmy aglomeracyjne)
+              </div>
+            </ul>
+            <p class="hero__descr">
+              Aby pomóc w zrozumieniu tematu, stworzymy wizualizację, która
+              pokaże, jak wygląda klastrowanie przy dwóch/trzech wymiarach.
+            </p>
+            <p class="hero__descr">
+              W końcu, ponieważ możemy grać z tymi samymi danymi, które są
+              używane do uczenia nadzorowanego, możemy sprawdzić, jak
+              nienadzorowane grupowanie może tworzyć grupy klientów o podobnych
+              atrybutach.
+            </p>
+            <p class="hero__descr">
+              Spróbujemy użyć także metod grupowania do zmniejszenia liczby
+              kolorów na rysunku (pogrupowania podobnych kolorystycznie
+              punktów), jak i stworzenia grup klientów o podobnych atrybutach.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="first">
+        <div class="first__container container">
+          <section class="question question--1">
+            <div class="container question__container">
+              <div class="question__content">
+                <h2 class="title question__title">Ćwiczenie 1</h2>
+                <p class="descr question__descr">
+                  W raporcie należy zamieść swoje najlepsze wyniki dla każdego
+                  zbioru danych (księżyce i koła), porównanie algorytmów oraz
+                  spostrzeżenia/wnioski/cechy charakterystyczne dotyczące
+                  wszystkich czterech algorytmów grupowania (wraz z wykresami
+                  ilustrującymi wyniki).
+                </p>
+                <div class="question__imgs">
+                  <div class="question__img">
+                    <img src="img/ksiezyc.png" alt="" />
+                  </div>
+                  <div class="question__img">
+                    <img src="img/kolo.png" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="question__body">
+                <div
+                  data-spollers
+                  data-one-spoller
+                  class="question__block block"
+                >
+                  <div class="block__item">
+                    <button
+                      tabindex="-1"
+                      type="button"
+                      data-spoller
+                      class="subtitle block__title post"
+                    >
+                      K-Means (Algorytm centroidów)
+                    </button>
+                    <div class="descr block__text">
+                      <h2 class="block__subtitle">
+                        Algorytm k-średnich (z ang. k-means) inaczej zwany
+                        również algorytmem centroidów, służy do podziału danych
+                        wejściowych na z góry założoną liczbę klas. Jest to
+                        jeden z algorytmów stosowany w klasteryzacji
+                        (grupowaniu) i jest częścią uczenia nienadzorowanego w
+                        Machine Learning.
+                      </h2>
+
+                      <p class="block__descr descr">
+                        Poniżej są zilustrowane wykresy i kod najlepszych
+                        wyników dla danego algorytmu:
+                      </p>
+
+                      <div class="question__imgs">
+                        <div class="question__img">
+                          <img src="img/kMeans/ksiezyc.png" alt="" />
+                        </div>
+                        <div class="question__img">
+                          <img src="img/kMeans/kolo.png" alt="" />
+                        </div>
+                      </div>
+
+                      <p class="block__descr descr">
+                        Możemy łatwo zauważyć, że K-Means nie poradził sobie
+                        najlepiej z grupowaniem podanych danych, ponieważ jest
+                        to najlepszy możliwy otrzymany wynik.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Księżyców pogrupował koło 66,(6)%
+                        właściwego księżyca i 33,(3)% niewłaściwego.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Okręgów pogrupował koło 50% właściwego
+                        księżyca i 50% niewłaściwego.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="block__item">
+                    <button
+                      tabindex="-1"
+                      type="button"
+                      data-spoller
+                      class="subtitle block__title post"
+                    >
+                      MeanShift
+                    </button>
+                    <div class="descr block__text">
+                      <h2 class="block__subtitle">
+                        Jeśli chodzi o algorytm Mean Shift , wykorzystuje on
+                        również technikę ekstrakcji informacji z punktu danych z
+                        operacją na wektorze średniej i to jest podobne do
+                        klastrowania K-Means. W Mean Shift wszystkie dane są
+                        centrum klastra i działają poprzez aktualizację
+                        kandydatów na centroidy jako średnią punktów. A na
+                        podstawie jądra punkt przesunąłby się do miejsca o
+                        największej gęstości. Robiąc to w celu skupienia lub
+                        śledzenia.
+                      </h2>
+
+                      <p class="block__descr descr">
+                        Poniżej są zilustrowane wykresy i kod najlepszych
+                        wyników dla danego algorytmu:
+                      </p>
+
+                      <div class="question__imgs">
+                        <div class="question__img">
+                          <img src="img/MeanShift/ksiezyc.png" alt="" />
+                        </div>
+                        <div class="question__img">
+                          <img src="img/MeanShift/kolo.png" alt="" />
+                        </div>
+                      </div>
+
+                      <p class="block__descr descr">
+                        Możemy łatwo zauważyć, że MeanShift - podobnie jak
+                        K-Means nie poradził sobie najlepiej z grupowaniem
+                        podanych danych, ponieważ jest to najlepszy możliwy
+                        otrzymany wynik.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Księżyców pogrupował koło 66,(6)%
+                        właściwego księżyca i 33,(3)% niewłaściwego.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Okręgów pogrupował koło 50% właściwego
+                        księżyca i 50% niewłaściwego.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="block__item">
+                    <button
+                      tabindex="-1"
+                      type="button"
+                      data-spoller
+                      class="subtitle block__title post"
+                    >
+                      DBSCAN (Analiza gęstościowa)
+                    </button>
+                    <div class="descr block__text">
+                      <h2 class="block__subtitle">
+                        Grupowanie gęstościowe polega na budowaniu segmentów na
+                        podstawie informacji o zagęszczeniu obserwacji w
+                        przestrzeni. Poprzez zagęszczenie należy rozumieć
+                        odległości dzielące poszczególne obserwacje w danym
+                        obszarze. W mojej ocenie jest ono najbardziej intuicyjną
+                        metodą grupowania.
+                      </h2>
+
+                      <p class="block__descr descr">
+                        Poniżej są zilustrowane wykresy i kod najlepszych
+                        wyników dla danego algorytmu:
+                      </p>
+
+                      <div class="question__imgs">
+                        <div class="question__img">
+                          <img src="img/DBSCAN/ksiezyc.png" alt="" />
+                        </div>
+                        <div class="question__img">
+                          <img src="img/DBSCAN/kolo.png" alt="" />
+                        </div>
+                      </div>
+
+                      <p class="block__descr descr">
+                        Możemy łatwo zauważyć, że DBSCAN poradził sobie z
+                        naszymi danymi i podgrupował wszystko tak jak należy.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Księżyców pogrupował 100% każdego
+                        właściwego księżyców.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Okręgów pogrupował 100% każdego właściwego
+                        okręgu.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="block__item">
+                    <button
+                      tabindex="-1"
+                      type="button"
+                      data-spoller
+                      class="subtitle block__title post"
+                    >
+                      AgglomerativeClustering (Algorytmy aglomeracyjne)
+                    </button>
+                    <div class="descr block__text">
+                      <h2 class="block__subtitle">
+                        metody aglomeracyjne (ang. agglomerative) – każda
+                        obserwacja tworzy na początku jednoelementowy klaster.
+                        Następnie pary klastrów są scalane, w każdej iteracji
+                        algorytmu łączone są z sobą dwa najbardziej zbliżone
+                        klastry. Tworzone są tak zwane aglomeracje. W tym typie
+                        podczas tworzenia klastrów idzie się w górę hierarchii.
+                      </h2>
+
+                      <p class="block__descr descr">
+                        Poniżej są zilustrowane wykresy i kod najlepszych
+                        wyników dla danego algorytmu:
+                      </p>
+
+                      <div class="question__imgs">
+                        <div class="question__img">
+                          <img src="img/agglomerative/ksiezyc.png" alt="" />
+                        </div>
+                        <div class="question__img">
+                          <img src="img/agglomerative/kolo.png" alt="" />
+                        </div>
+                      </div>
+
+                      <p class="block__descr descr">
+                        Możemy łatwo zauważyć, że AgglomerativeClustering
+                        poradził sobie z naszymi danymi i podgrupował wszystko
+                        tak jak należy.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Księżyców pogrupował koło 66,(6)%
+                        właściwego księżyca i 33,(3)% niewłaściwego.
+                      </p>
+
+                      <p class="block__descr descr">
+                        - w przypadku Okręgów pogrupował koło 50% właściwego
+                        księżyca i 50% niewłaściwego.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="first">
+        <div class="first__container container">
+          <section class="question question--2">
+            <div class="container question__container">
+              <div class="question__content">
+                <h2 class="title question__title">Ćwiczenie 2</h2>
+                <p class="descr question__descr">
+                  Do raportu należy wybrać obraz, zredukować jego kolory do
+                  mniej niż 10 kolorów, ale w taki sposób, aby uzyskany obraz
+                  bardzo przypominał oryginalny. Należy podać nazwę obrazu,
+                  informację o liczbie kolorów, a także wkleić zarówno
+                  oryginalny, jak i skompresowany obraz.
+                </p>
+              </div>
+
+              <div class="question__bottom">
+                <p class="question__subdescr">
+                  Wybrany został obrazek o nazwie 'flower.jpg'
+                </p>
+                <div class="question__img">
+                  <img src="img/flower.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Zwizualizowane piksele w przestrzeni kolorów, używając
+                  podzbioru 10 000 pikseli dla zwiększenia wydajności (16 milion
+                  możliwych kolorów):
+                </p>
+                <div class="question__img">
+                  <img src="img/reduced.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Zredukowanie 16 milionów kolorów do zaledwie 8 kolorów,
+                  używając metody k-średnich w przestrzeni pikseli:
+                </p>
+                <div class="question__img">
+                  <img src="img/reduced1.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Po zredukowaniu wszystkich kolorów obrazku do 8 kolorów
+                  tracimy jakość obrazu jednak widać, że obrazek jest nadal
+                  czytelny:
+                </p>
+                <div class="question__img">
+                  <img src="img/imgMade.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="first">
+        <div class="first__container container">
+          <section class="question question--2">
+            <div class="container question__container">
+              <div class="question__content">
+                <h2 class="title question__title">Ćwiczenie 3</h2>
+                <p class="descr question__descr">
+                  W raporcie należy odpowiedzieć i uzasadnić (na bazie
+                  odpowiednich wykresów lub wyników algorytmów zamieszczonych w
+                  raporcie), która/e kolumna/e ze zbioru danych
+                  mergedcustomers.csv silnie wpływa/ją na podziały na klastry,
+                  jak również zamieścić przykład klastrowania, w którym uzyskano
+                  w miarę dobre rozróżnienie klientów ze względu na ryzyko
+                  Low/High (z uzasadnieniem).
+                </p>
+              </div>
+
+              <div class="question__bottom">
+                <p class="question__subdescr">
+                  Po zastosowaniu 'AgglomerativeClustering' z odpowiednimi
+                  parametrami otrzymujemy wynik, w którym mamy 2 klastre:
+                </p>
+                <div class="question__img">
+                  <img src="img/3/code.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Otrzymany wykres danych po zastosowaniu algorytmu
+                  aglomeracyjnego:
+                </p>
+                <div class="question__img">
+                  <img src="img/3/wykres.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Otrzymany wykres ryzyka po zastosowaniu algorytmu
+                  aglomeracyjnego:
+                </p>
+                <div class="question__img">
+                  <img src="img/3/wykres-risk.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Odpowiadając na pytanie - która kolumna ze zboiru danego csv
+                  ma silny wpływ na podziały na klastry:
+                </p>
+                <p class="question__subdescr">
+                  Jest to kolumna wieku - 'PROFIT_YTD', ponieważ gdy popatrzymy
+                  na 3D wykres ze wzlędu na każdą oś zobaczymy, że tylko w
+                  przypadku osi 'PROFIT_YTD' widać wyraźne grupowanie naszych
+                  danych:
+                </p>
+                <p class="question__subdescr">
+                  Na poniższym wykresie możemy zobaczyć, że niskie ryzyko
+                  znajduje się w przedziale [-3000;0], natomiast wysokie w
+                  przedziale (0;3000] - względem osi 'PROFIT_YTD':
+                </p>
+                <div class="question__img">
+                  <img src="img/3/wykres3d-profit.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  Natomiast w przypadku 'DAYSSINCELASTTRADE': niskie ryzyko w
+                  przedziale - [5;10] i wysokie w przedziale - [0;20]. Nie
+                  grupują się dane względem danej osi i widać to na poniższym
+                  wykresie:
+                </p>
+                <div class="question__img">
+                  <img src="img/3/wykres3d-day.png" alt="" />
+                </div>
+                <p class="question__subdescr">
+                  A także w przypadku 'AGE': niskie ryzyko w przedziale -
+                  [10;70] i wysokie w przedziale - [10;70]. Nie grupują się dane
+                  względem danej osi i widać to na poniższym wykresie:
+                </p>
+                <div class="question__img">
+                  <img src="img/3/wykres3d-age.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+
+  <!--FontAwesome-->
+  <script
+    src="https://kit.fontawesome.com/72e9e0b28f.js"
+    crossorigin="anonymous"
+  ></script>
+
+  <!--JQuery-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!--JS-->
+  <script src="js/script.js"></script>
+</html>
